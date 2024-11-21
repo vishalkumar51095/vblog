@@ -5,8 +5,6 @@ from tinymce.models import HTMLField
 
 
 # Create your models here.
-
-
 class Category(models.Model):
     cat_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)

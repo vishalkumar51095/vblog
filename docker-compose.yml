@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000  # Ensure it uses the virtual environment python
+    volumes:
+      - .:/app  # Mount the project code into the container
+    ports:
+      - "8000:8000"  # Expose port 8000 to the host
+    environment:
+      - PYTHONUNBUFFERED=1  # Make Python output unbuffered (useful for logging)

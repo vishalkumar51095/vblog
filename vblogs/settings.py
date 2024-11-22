@@ -14,9 +14,6 @@ from pathlib import Path
 
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -55,11 +52,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'vblogs.urls'
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['template'],
+        'DIRS': [BASE_DIR / 'templates'],  # Adjust to your custom templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +69,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'vblogs.wsgi.application'
 
@@ -122,7 +121,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 MEDIA_URL = '/media/'

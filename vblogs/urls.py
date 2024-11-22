@@ -14,13 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path 
+from django.urls import include, path 
 from django.conf.urls.static import static
 from django.conf import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('tinymce/', include('tinymce.urls')),  # If you're using tinymce, uncomment this line
-    # path('', include('blog.urls')),  # Uncomment if you have a blog app or other URL patterns
+    # path('tinymce/', include('tinymce.urls')),  
+    path('', include('blog.urls')),  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
